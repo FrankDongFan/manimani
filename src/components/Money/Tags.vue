@@ -6,11 +6,11 @@
     <ul class="current">
       <li
         v-for="tag in dataSource"
-        :key="tag"
+        :key="tag.id"
         :class="{ selected: selectedTags.indexOf(tag) >= 0 }"
         @click="toggle(tag)"
       >
-        {{ tag }}
+        {{ tag.name }}
       </li>
     </ul>
   </div>
@@ -23,6 +23,7 @@ import { Component, Prop } from "vue-property-decorator";
 export default class Tags extends Vue {
   @Prop() readonly dataSource: string[] | undefined;
   selectedTags: string[] = [];
+
   toggle(tag: string) {
     const index = this.selectedTags.indexOf(tag);
     if (index >= 0) {
