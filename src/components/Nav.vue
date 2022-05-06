@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~@/assets/style/helper.scss";
+@import "@/assets/style/helper.scss";
 nav {
   @extend %outerShadow;
   display: flex;
@@ -35,6 +35,7 @@ nav {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
     .icon {
       width: 32px;
       height: 32px;
