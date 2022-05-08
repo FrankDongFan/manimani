@@ -6,9 +6,6 @@ type RecordItem = {
     createdAt?: Date; // 类 / 构造函数
 }
 
-interface Window{
-  tagList:Tag[]
-}
 
 type Tag = {
   id: string;
@@ -21,4 +18,6 @@ type TagListModel = {
   update: (id: string, name: string) => 'success' | 'not found' | 'duplicated'
   remove: (id: string) => boolean
   save: () => void
+}
+interface Window {
 }
