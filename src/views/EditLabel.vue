@@ -1,9 +1,12 @@
 <template>
   <Layout>
     <div class="navBar">
-      <Icon class="leftIcon" name="left" @click="goBack" />
+      <div @click="goBack">
+        <Icon class="leftIcon" name="left" />
+      </div>
+
       <span class="title">编辑标签</span>
-      <span class="rightIcon"></span>
+      <span class="rightIcon" />
     </div>
     <div class="form-wrapper">
       <FormItem
@@ -53,6 +56,8 @@ export default class EditLabel extends Vue {
     }
   }
   goBack() {
+    console.log(`看看進來沒有`);
+
     this.$router.back();
   }
 }

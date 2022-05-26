@@ -17,14 +17,13 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
 import { Component, Prop } from "vue-property-decorator";
 import { mixins } from "vue-class-component";
 import TagHelper from "@/mixins/TagHelper";
 @Component
 export default class Tags extends mixins(TagHelper) {
-  @Prop() readonly dataSource: string[] | undefined;
   selectedTags: string[] = [];
+  // tagNames: string[] = [];
 
   get tagList() {
     return this.$store.state.tagList;
@@ -39,6 +38,10 @@ export default class Tags extends mixins(TagHelper) {
     } else {
       this.selectedTags.push(tag);
     }
+    // this.tagNames = this.selectedTags.map((item) => {
+    //   return item.name;
+    // });
+    // this.$emit("update:name", this.tagNames);
     this.$emit("update:value", this.selectedTags);
   }
 }
@@ -82,3 +85,4 @@ export default class Tags extends mixins(TagHelper) {
   }
 }
 </style>
+

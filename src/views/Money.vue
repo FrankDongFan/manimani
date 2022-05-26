@@ -1,5 +1,5 @@
 <template>
-  <Layout class-prefix="layout">
+  <Layout class-prefix="layout" :style="{ height: h + 'px' }">
     <NumberPad :value.sync="record.amount" @submit="saveRecord" />
     <Tabs :data-source="recordTypeList" :value.sync="record.type" />
     <div class="notes">
@@ -9,6 +9,7 @@
         @update:value="onUpdateNotes"
       />
     </div>
+
     <Tags />
   </Layout>
 </template>
@@ -32,12 +33,15 @@ export default class Money extends Vue {
 
   recordTypeList = recordTypeList;
 
+  h: number = document.body.clientHeight;
+
   record: RecordItem = {
     tags: [],
     notes: "",
     type: "-",
     amount: 0,
   };
+
   created() {
     this.$store.commit("fetchRecords");
   }
@@ -52,8 +56,8 @@ export default class Money extends Vue {
 </script>
 
 
-<style lang="scss" >
-.layout-content {
+<style lang="scss" scoped>
+::v-deep .layout-content {
   display: flex;
   flex-direction: column-reverse;
 }
@@ -61,3 +65,5 @@ export default class Money extends Vue {
   padding: 12px 0;
 }
 </style>
+
+

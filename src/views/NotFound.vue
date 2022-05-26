@@ -1,4 +1,4 @@
-import router from '../router/index';
+import router from '../router/index.ts';
 <template>
   <div>
     <div>当前页面不存在，请检查网址是否正确</div>
