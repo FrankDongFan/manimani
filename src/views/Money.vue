@@ -27,13 +27,13 @@ import recordTypeList from "@/constants/recordTypeList";
   components: { Tabs, Tags, FormItem, NumberPad },
 })
 export default class Money extends Vue {
+  h = document.body.clientHeight;
+
   get recordList() {
     return this.$store.state.recordList;
   }
 
   recordTypeList = recordTypeList;
-
-  h: number = document.body.clientHeight;
 
   record: RecordItem = {
     tags: [],
